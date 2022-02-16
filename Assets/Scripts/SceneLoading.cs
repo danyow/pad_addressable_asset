@@ -26,7 +26,7 @@ public class SceneLoading : MonoBehaviour
         Addressables.LoadSceneAsync(ToName(sceneName));
     }
 
-    private string ToName(string name)
+    public static string ToName(string name)
     {
         return $"Assets/Scenes/{name}.unity";
     }

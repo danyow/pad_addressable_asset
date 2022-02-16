@@ -1,10 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
+
 public class SceneBootstrap : MonoBehaviour
 {
-    private void Start(){
-        Addressables.LoadSceneAsync("Menu");
+
+    [SerializeField]
+    private InputField _inputField;
+
+    public void OnButtonClick()
+    {
+        if (!string.IsNullOrEmpty(_inputField.text))
+        {
+            Addressables.LoadSceneAsync(SceneLoading.ToName(_inputField.text));
+        }
     }
 }
