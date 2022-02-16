@@ -18,10 +18,9 @@ MonoBehaviour:
   m_GUID: 6679e07225dfb42199356af64a0fbf82
   m_SerializeEntries:
   - m_GUID: bd274add064974b55b9545164610e166
-    m_Address: Level3
+    m_Address: Assets/Scenes/Level3.unity
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level3
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 006c63166c36e480399c27b4478000db, type: 2}
   m_SchemaSet:
