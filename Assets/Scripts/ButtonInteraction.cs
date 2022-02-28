@@ -34,7 +34,7 @@ namespace AddressablesPlayAssetDelivery
                 case true:
                     Debug.LogError("Loading operation currently in progress.");
                     break;
-                case false when _obj == null:
+                case false when _clip == null:
                     // Load the object
                     StartCoroutine(Instantiate());
                     break;
@@ -52,7 +52,22 @@ namespace AddressablesPlayAssetDelivery
         private IEnumerator Instantiate()
         {
             _isLoading = true;
-            var prefabPath   = $"Assets/Prefabs/{_type}/Prefab.prefab";
+            var prefabPath = $"Assets/Prefabs/{_type}/Prefab.prefab";
+            var asyncTask  = Khepri.AssetDelivery.AddressablesAssetDelivery.GetDownloadSizeAsync(prefabPath);
+            while (!asyncTask.IsDone)
+            {
+                yield return null;
+            }
+            var isCached = asyncTask.Status == AsyncOperationStatus.Succeeded && asyncTask.Result == 0;
+            if (!isCached)
+            {
+                var downloadAsyncTask = Addressables.DownloadDependenciesAsync(prefabPath);
+                while (!downloadAsyncTask.IsDone)
+                {
+                    _image.fillAmount = downloadAsyncTask.PercentComplete;
+                    yield return null;
+                }
+            }
             var prefabHandle = Addressables.InstantiateAsync(prefabPath, parent);
             while (!prefabHandle.IsDone)
             {
@@ -60,7 +75,23 @@ namespace AddressablesPlayAssetDelivery
                 yield return null;
             }
             _image.fillAmount = 0;
-            var musicPath   = $"Assets/Prefabs/{_type}/Music.mp3";
+            var musicPath = $"Assets/Prefabs/{_type}/Music.mp3";
+            asyncTask = Khepri.AssetDelivery.AddressablesAssetDelivery.GetDownloadSizeAsync(musicPath);
+            while (!asyncTask.IsDone)
+            {
+                yield return null;
+            }
+            isCached = asyncTask.Status == AsyncOperationStatus.Succeeded && asyncTask.Result == 0;
+            if (!isCached)
+            {
+                var downloadAsyncTask = Addressables.DownloadDependenciesAsync(prefabPath);
+                while (!downloadAsyncTask.IsDone)
+                {
+                    _image.fillAmount = downloadAsyncTask.PercentComplete;
+                    yield return null;
+                }
+            }
+            // Khepri.AssetDelivery.AddressablesAssetDelivery.IsPack(musicPath)
             var musicHandle = Addressables.LoadAssetAsync<AudioClip>(musicPath);
             while (!musicHandle.IsDone)
             {
@@ -68,7 +99,7 @@ namespace AddressablesPlayAssetDelivery
                 yield return null;
             }
             _image.fillAmount = 1;
-            _obj              = prefabHandle.Result;
+            // _obj              = prefabHandle.Result;
             _clip             = musicHandle.Result;
             _audioSource.clip = musicHandle.Result;
             _audioSource.Play();

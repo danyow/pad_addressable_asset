@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level2_AssetPackGroupSchema
   m_EditorClassIdentifier: 
   m_Group: {fileID: 11400000, guid: 608c56f79c5224037b0a945630042dd8, type: 2}
-  m_DeliveryMode: 3
+  m_DeliveryMode: 2

@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: AssetPacks
   m_EditorClassIdentifier: 
   packs:
-  - defaultlocalgroup_scenes_all_76556bc809fcc86298ffb4303618f16f
-  - defaultlocalgroup_unitybuiltinshaders_68e60a2b6e147566d85bd55d07687a1e
-  - fastfollow_assets_all_d0f89d57ba6b01c49cad930d80c64fb4
-  - installtime_assets_all_84c82cd6577119430aab138f50ef68bf
-  - level2_scenes_all_8f32befe22e657834d388da8ac1c3b79
-  - level3_scenes_all_29d58eb29fc849ab43cd48f0dfe978ab
-  - ondemand_assets_all_9ba064fd6f66745967ec1fcbafdc47a4
+  - defaultlocalgroup_scenes_all_20581eb0d0e0899690826a28dc1d0fe1
+  - defaultlocalgroup_unitybuiltinshaders_18ace1ae4383231abf910e45c8dc8db3
+  - level2_scenes_all_c26fe61ca56dbdd227258e082d7d527d
+  - level3_scenes_all_bbdcaa61d77c761903e90b01933495ab

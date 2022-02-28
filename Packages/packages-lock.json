@@ -9,20 +9,6 @@
       },
       "url": "https://package.openupm.cn"
     },
-    "com.coffee.ui-effect": {
-      "version": "4.0.0-preview.9",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.cn"
-    },
-    "com.coffee.ui-particle": {
-      "version": "3.3.9",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.cn"
-    },
     "com.e7.notch-solution": {
       "version": "1.9.0",
       "depth": 0,
@@ -117,7 +103,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.19.5",
+      "version": "1.19.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
